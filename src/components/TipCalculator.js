@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './TipCalculator.css'
   
 const TipCalculator = () => {
   const [totalTips, setTotalTips] = useState(0);
@@ -21,14 +22,14 @@ const TipCalculator = () => {
   
   return (
     <div>
-      <label className="tip-calculator"> Total Tips:</label>
+      <label className="tip-calculator">Total Tips:</label>
       <input
         className="input"
         type="number"
         value={totalTips}
         onChange={e => setTotalTips(e.target.value)}
       />
-      <form onSubmit={e => e.preventDefault()}>
+      <form className="form" onSubmit={e => e.preventDefault()}>
         {persons.map((person, index) => (
           <div key={index}>
             <label>Name:</label>
