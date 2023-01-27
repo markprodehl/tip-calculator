@@ -22,46 +22,46 @@ const TipCalculator = () => {
   
   return (
     <div>
-      <label className="tip-calculator">Total Tips:</label>
-      <input
-        className="input"
-        type="number"
-        value={totalTips}
-        onChange={e => setTotalTips(e.target.value)}
-      />
       <form className="form" onSubmit={e => e.preventDefault()}>
-        {persons.map((person, index) => (
-          <div key={index}>
-            <label>Name:</label>
-            <input
-              className="input"
-              type="text"
-              value={person.name}
-              onChange={e => {
-                const newPersons = [...persons];
-                newPersons[index].name = e.target.value;
-                setPersons(newPersons);
-              }}
-            />
-            <label>Hours Worked:</label>
-            <input
-              className="input"
-              type="number"
-              value={person.hours}
-              onChange={e => {
-                const newPersons = [...persons];
-                newPersons[index].hours = e.target.value;
-                setPersons(newPersons);
-              }}
-            />
-          </div>
-        ))}
-        <button 
-          className="button"
-          type="button" 
-          onClick={() => setPersons([...persons, {name: "", hours: 0 }])}>
-          Add Person
-        </button>
+        <label className="tip-calculator">Total Tips:</label>
+        <input
+          className="input"
+          type="number"
+          value={totalTips}
+          onChange={e => setTotalTips(e.target.value)}
+        />
+          {persons.map((person, index) => (
+            <div key={index}>
+              <label>Name:</label>
+              <input
+                className="input"
+                type="text"
+                value={person.name}
+                onChange={e => {
+                  const newPersons = [...persons];
+                  newPersons[index].name = e.target.value;
+                  setPersons(newPersons);
+                }}
+              />
+              <label>Hours Worked:</label>
+              <input
+                className="input"
+                type="number"
+                value={person.hours}
+                onChange={e => {
+                  const newPersons = [...persons];
+                  newPersons[index].hours = e.target.value;
+                  setPersons(newPersons);
+                }}
+              />
+            </div>
+          ))}
+          <button 
+            className="button"
+            type="button" 
+            onClick={() => setPersons([...persons, {name: "", hours: 0 }])}>
+            Add Person
+          </button>
       </form>
       <h3>Shares</h3>
       <ul className="shares">
