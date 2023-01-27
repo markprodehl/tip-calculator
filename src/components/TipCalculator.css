@@ -1,19 +1,15 @@
 /*TipCalculator.css*/
 
 .tip-calculator,
-.header {
+.header,
+.form {
   font-family: Arial, sans-serif;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-}
+  justify-content: left;
 
-.form {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  margin-left: 100px;
 }
 
 .input {
