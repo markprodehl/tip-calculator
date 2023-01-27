@@ -21,8 +21,9 @@ const TipCalculator = () => {
   
   return (
     <div>
-      <label> Total Tips:</label>
+      <label className="tip-calculator"> Total Tips:</label>
       <input
+        className="input"
         type="number"
         value={totalTips}
         onChange={e => setTotalTips(e.target.value)}
@@ -32,6 +33,7 @@ const TipCalculator = () => {
           <div key={index}>
             <label>Name:</label>
             <input
+              className="input"
               type="text"
               value={person.name}
               onChange={e => {
@@ -42,6 +44,7 @@ const TipCalculator = () => {
             />
             <label>Hours Worked:</label>
             <input
+              className="input"
               type="number"
               value={person.hours}
               onChange={e => {
@@ -53,13 +56,14 @@ const TipCalculator = () => {
           </div>
         ))}
         <button 
+          className="button"
           type="button" 
           onClick={() => setPersons([...persons, {name: "", hours: 0 }])}>
           Add Person
         </button>
       </form>
       <h3>Shares</h3>
-      <ul>
+      <ul className="shares">
         {shares.map((person, index) => (
           <li key={index}> 
             {person.name}: {person.share == 0 ? "" : person.share}
