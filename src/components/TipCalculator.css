@@ -1,5 +1,7 @@
 /*TipCalculator.css*/
-.tip-calculator {
+
+.tip-calculator,
+.header {
   font-family: Arial, sans-serif;
   display: flex;
   flex-wrap: wrap;
