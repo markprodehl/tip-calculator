@@ -64,7 +64,7 @@ const TipCalculator = () => {
         </div>
         <br />
         <div>
-          Average Tips Per Hour: £{(totalTips / totalHours).toFixed(2)}
+          Average Tips Per Hour: £{totalTips && totalHours ? (totalTips / totalHours).toFixed(2) : ""}
         </div>
       </div>
       <br/>
