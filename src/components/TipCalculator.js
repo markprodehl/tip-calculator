@@ -72,7 +72,7 @@ const TipCalculator = () => {
         {employees.map((employee) => (
           <div key={employee.employeeName} className="employee-item">
             {employee.employeeName}: {employee.hoursWorked} hours - £{((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
-            <button onClick={() => handleDelete(employee) } className="delete-btn">Delete</button>
+            <button onClick={() => handleDelete(employee) } type="delete" className="delete-btn">Delete</button>
           </div>
         ))}
       </div>
