@@ -7,30 +7,32 @@ const TipCalculator = () => {
   const [totalHours, setTotalHours] = useState(0);
   const [employeeName, setEmployeeName] = useState("");
   const [hoursWorked, setHoursWorked] = useState("");
+  const [totalTipsError, setTotalTipsError] = useState("");
+  const [employeeNameError, setEmployeeNameError] = useState("");
+  const [hoursWorkedError, setHoursWorkedError] = useState("");
 
   const handleTotalTipsChange = (e) => {
     const value = e.target.value;
     setTotalTips(value === 0 ? "" : value);
   };
 
-  // const handleEmployeeSubmit = (event) => {
-  //   event.preventDefault();
-  //   setEmployees([...employees, { employeeName, hoursWorked }]);
-  //   setTotalHours(totalHours + parseInt(hoursWorked));
-  //   setEmployeeName("");
-  //   setHoursWorked("");
-  // };
 
   const handleEmployeeSubmit = (event) => {
     event.preventDefault();
-    if (isNaN(totalTips) || totalTips === 0) {
-      return alert("Total tips must be a number greater than 0");
+    setTotalTipsError("");
+    setEmployeeNameError("");
+    setHoursWorkedError("");
+    if (!totalTips) {
+      setTotalTipsError("Total tips can't be blank");
+      return;
     }
-    if (!employeeName) {
-      return alert("Employee name is required");
+    if (!employeeName || !employeeName.trim()) {
+      setEmployeeNameError("Employee name can't be blank ");
+      return;
     }
-    if (isNaN(hoursWorked) || hoursWorked === "") {
-      return alert("Hours worked must be a number greater than 0");
+    if (!hoursWorked || isNaN(hoursWorked) || hoursWorked <= 0) {
+      setHoursWorkedError("Hours worked can't be blank");
+      return;
     }
     setEmployees([...employees, { employeeName, hoursWorked }]);
     setTotalHours(totalHours + parseInt(hoursWorked));
@@ -50,10 +52,11 @@ const TipCalculator = () => {
       <form className="input-form">
         <input 
           type="number" 
-          value={totalTips || ""} 
+          value={totalTips || ""}
           onChange={handleTotalTipsChange} 
-          placeholder="Total Tips" 
-        />
+          placeholder="Total Tips"
+          />
+          {totalTipsError && <p className="error-message">{totalTipsError}</p>}
       <br />
       </form>
       <br/>
@@ -65,6 +68,7 @@ const TipCalculator = () => {
           value={employeeName}
           onChange={(e) => setEmployeeName(e.target.value)}
         />
+        {employeeNameError && <p className="error-message">{employeeNameError}</p>}
         <input
           type="number"
           name="hoursWorked"
@@ -72,6 +76,7 @@ const TipCalculator = () => {
           value={hoursWorked}
           onChange={(e) => setHoursWorked(e.target.value)}
         />
+        {hoursWorkedError && <p className="error-message">{hoursWorkedError}</p>}
         <button type="submit">Add Employee</button>
       </form>
       <br />

@@ -73,3 +73,10 @@ button[type="delete"]:hover {
 .employee-item {
   margin-bottom: 10px;
 }
+
+.error-message {
+  margin: 0;
+  color: #ED4815;
+  font-size: 14px;
+  align-items: left;
+}
