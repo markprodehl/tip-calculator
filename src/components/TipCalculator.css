@@ -11,7 +11,7 @@ body {
   height: 100vh;
 }
 
-form {
+.input-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,3 +70,77 @@ button[type="button"]:hover {
 .employee-name {
   margin-right: 10px;
 }
+
+/* .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-field {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.add-btn {
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.employee-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin-top: 50px;
+}
+
+.employee-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: lightgray;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.total-hours {
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.total-tips-per-hour {
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.employee-tips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+} */
