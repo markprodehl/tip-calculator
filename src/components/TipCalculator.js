@@ -29,7 +29,7 @@ const TipCalculator = () => {
   return (
     
     <div className="container">
-      <h2>Jason's Tronk Calculator</h2>
+      <h2>Jason's Tronc Calculator</h2>
       <form className="input-form">
         <input 
           type="number" 
