@@ -8,10 +8,6 @@ const TipCalculator = () => {
   const [employeeName, setEmployeeName] = useState("");
   const [hoursWorked, setHoursWorked] = useState("");
 
-  // const handleTipChange = (event) => {
-  //   setTotalTips(event.target.value);
-  // };
-
   const handleTotalTipsChange = (e) => {
     const value = e.target.value;
     setTotalTips(value === 0 ? "" : value);
@@ -74,7 +70,7 @@ const TipCalculator = () => {
       <br />
       {employees.map((employee) => (
         <div key={employee.employeeName}>
-          {employee.employeeName}: {((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
+          {employee.employeeName}: {(totalTips / totalHours) * employee.hoursWorked}
         </div>
       ))}
     </div>
