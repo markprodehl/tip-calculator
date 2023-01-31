@@ -36,7 +36,6 @@ const TipCalculator = () => {
           value={totalTips || ""} 
           onChange={handleTotalTipsChange} 
           placeholder="Total Tips" 
-          className="input-field"
         />
       <br />
       </form>
@@ -48,7 +47,6 @@ const TipCalculator = () => {
           placeholder="Employee name"
           value={employeeName}
           onChange={(e) => setEmployeeName(e.target.value)}
-          className="input-field"
         />
         <input
           type="number"
@@ -56,36 +54,28 @@ const TipCalculator = () => {
           placeholder="Hours worked"
           value={hoursWorked}
           onChange={(e) => setHoursWorked(e.target.value)}
-          className="input-field"
         />
-        <button type="submit" className="add-btn">Add Employee</button>
+        <button type="submit">Add Employee</button>
       </form>
       <br />
-      <div className="total-hours">
-        Total Hours: {totalHours}
-      </div>
-      <br />
-      <div className="total-tips-per-hour">
-        Average Tips Per Hour: {totalTips / totalHours}
+      <div className="display-results">
+        <div>
+          Total Hours: {totalHours}
+        </div>
+        <br />
+        <div>
+          Average Tips Per Hour: £{(totalTips / totalHours).toFixed(2)}
+        </div>
       </div>
       <br/>
-      <div className="employee-list">
+      <div className="display-results">
         {employees.map((employee) => (
           <div key={employee.employeeName} className="employee-item">
-            {employee.employeeName}: {employee.hoursWorked} hours - {(totalTips / totalHours) * employee.hoursWorked}
+            {employee.employeeName}: {employee.hoursWorked} hours - £{((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
             <button onClick={() => handleDelete(employee) } className="delete-btn">Delete</button>
           </div>
         ))}
       </div>
-      {/* <br />
-      <br /> */}
-      {/* <div className="employee-tips">
-        {employees.map((employee) => (
-          <div key={employee.employeeName}>
-            {employee.employeeName}: {(totalTips / totalHours) * employee.hoursWorked}
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 };

@@ -21,6 +21,16 @@ body {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
+.display-results {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
 input[type="text"],
 input[type="number"] {
   padding: 10px;
@@ -61,86 +71,17 @@ button[type="button"]:hover {
   background-color: #0E3D91;
 }
 
-.employee-container {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.employee-name {
-  margin-right: 10px;
-}
-
-/* .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-}
-
-.input-form {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.input-field {
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
-
-.add-btn {
-  padding: 10px;
-  background-color: green;
+.delete-btn {
+  margin-left: 20px;
+  margin-bottom: 3px;
+  padding: 4px;
+  background-color: #FF5A27;
   color: white;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
-
-.employee-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-  margin-top: 50px;
+  border-radius: 7px;
+  border: 0 none;
+  /* border: 1px solid gray; */
 }
 
 .employee-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
   margin-bottom: 10px;
-  background-color: lightgray;
-  width: 100%;
-  border-radius: 5px;
 }
-
-.delete-btn {
-  padding: 10px;
-  background-color: red;
-  color: white;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
-
-.total-hours {
-  font-weight: bold;
-  margin-top: 50px;
-}
-
-.total-tips-per-hour {
-  font-weight: bold;
-  margin-top: 50px;
-}
-
-.employee-tips {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-} */
