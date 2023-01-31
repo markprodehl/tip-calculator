@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './TipCalculator.css'
 
 const TipCalculator = () => {
-  const [totalTips, setTotalTips] = useState(0);
+  const [totalTips, setTotalTips] = useState("");
   const [employees, setEmployees] = useState([]);
   const [totalHours, setTotalHours] = useState(0);
   const [employeeName, setEmployeeName] = useState("");
@@ -13,8 +13,25 @@ const TipCalculator = () => {
     setTotalTips(value === 0 ? "" : value);
   };
 
+  // const handleEmployeeSubmit = (event) => {
+  //   event.preventDefault();
+  //   setEmployees([...employees, { employeeName, hoursWorked }]);
+  //   setTotalHours(totalHours + parseInt(hoursWorked));
+  //   setEmployeeName("");
+  //   setHoursWorked("");
+  // };
+
   const handleEmployeeSubmit = (event) => {
     event.preventDefault();
+    if (isNaN(totalTips) || totalTips === 0) {
+      return alert("Total tips must be a number greater than 0");
+    }
+    if (!employeeName) {
+      return alert("Employee name is required");
+    }
+    if (isNaN(hoursWorked) || hoursWorked === "") {
+      return alert("Hours worked must be a number greater than 0");
+    }
     setEmployees([...employees, { employeeName, hoursWorked }]);
     setTotalHours(totalHours + parseInt(hoursWorked));
     setEmployeeName("");
