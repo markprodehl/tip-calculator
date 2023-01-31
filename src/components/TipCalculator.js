@@ -1,87 +1,84 @@
 import React, { useState } from 'react';
 import './TipCalculator.css'
-  
+
 const TipCalculator = () => {
   const [totalTips, setTotalTips] = useState(0);
-  const [persons, setPersons] = useState([{ name: '', hours: 0 }]);
-  
-  function calculateShares() {
-    let totalHours = 0;
-    persons.forEach(person => {
-      totalHours += person.hours
-    });
-    
-    return persons.map(person => {
-      const share = (totalTips / totalHours) * person.hours;
-      return { ... person, share }
-    })
-  }
+  const [employees, setEmployees] = useState([]);
+  const [totalHours, setTotalHours] = useState(0);
+  const [employeeName, setEmployeeName] = useState("");
+  const [hoursWorked, setHoursWorked] = useState("");
 
-  const shares = calculateShares()
-  
+  // const handleTipChange = (event) => {
+  //   setTotalTips(event.target.value);
+  // };
+
+  const handleTotalTipsChange = (e) => {
+    const value = e.target.value;
+    setTotalTips(value === 0 ? "" : value);
+  };
+
+  const handleEmployeeSubmit = (event) => {
+    event.preventDefault();
+    setEmployees([...employees, { employeeName, hoursWorked }]);
+    setTotalHours(totalHours + parseInt(hoursWorked));
+    setEmployeeName("");
+    setHoursWorked("");
+  };
+
+  const handleDelete = (employee) => {
+    setEmployees(employees.filter((e) => e !== employee));
+    setTotalHours(totalHours - employee.hoursWorked);
+  };
+
   return (
     <div>
-
-      <h2 className="header"> TIP Calculator</h2>
-      <div className='form'>
-        <label>Total Tips:</label>
-          <input
-            className="input"
-            type="number"
-            value={totalTips}
-            onChange={e => setTotalTips(e.target.value)}
-          />
-      </div>
-
-      <form className="form" onSubmit={e => e.preventDefault()}>
-        <ul className="shares">
-          {persons.map((person, index) => (
-            <li key={index}>
-              <label>Name:</label>
-              <input
-                className="input"
-                type="text"
-                value={person.name}
-                onChange={e => {
-                  const newPersons = [...persons];
-                  newPersons[index].name = e.target.value;
-                  setPersons(newPersons);
-                }}
-              />
-              <label>Hours Worked:</label>
-              <input
-                className="input"
-                type="number"
-                value={person.hours}
-                onChange={e => {
-                  const newPersons = [...persons];
-                  newPersons[index].hours = e.target.value;
-                  setPersons(newPersons);
-                }}
-              />
-            </li>
-          ))}
-          <button 
-            className="button"
-            type="button" 
-            onClick={() => setPersons([...persons, {name: "", hours: 0 }])}>
-            Add Person
-          </button>
-        </ul>
-
+      <form>
+        <input 
+          type="number" 
+          value={totalTips || ""} 
+          onChange={handleTotalTipsChange} 
+          placeholder="Total Tips" />
+        <br />
+        <br />
       </form>
-      <h2 className='form'>Shares</h2>
-      <div className='form'>
-        <ul className="shares">
-          {shares.map((person, index) => (
-            <li key={index}> 
-              {person.name} : {person.share == 0 ? "" : person.share}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <form onSubmit={handleEmployeeSubmit}>
+        <input
+          type="text"
+          name="employeeName"
+          placeholder="Employee name"
+          value={employeeName}
+          onChange={(e) => setEmployeeName(e.target.value)}
+        />
+        <input
+          type="number"
+          name="hoursWorked"
+          placeholder="Hours worked"
+          value={hoursWorked}
+          onChange={(e) => setHoursWorked(e.target.value)}
+        />
+        <button type="submit">Add Employee</button>
+      </form>
+      <br />
+      {employees.map((employee) => (
+        <div key={employee.employeeName}>
+          {employee.employeeName}: {employee.hoursWorked} hours
+          <button onClick={() => handleDelete(employee)}>Delete</button>
+        </div>
+      ))}
+      <br />
+      Total hours: {totalHours}
+      <br />
+      <br />
+      Total tips per hour: {totalTips / totalHours}
+      <br />
+      <br />
+      {employees.map((employee) => (
+        <div key={employee.employeeName}>
+          {employee.employeeName}: {((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
 export default TipCalculator;
