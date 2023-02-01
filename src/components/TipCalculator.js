@@ -58,7 +58,10 @@ const TipCalculator = () => {
         <NumericFormat
           type="text"
           value={totalTips || ""}
-          onValueChange={(values) => handleTotalTipsChange(values.floatValue)}
+          onValueChange={(e) => {
+            handleTotalTipsChange(e.floatValue)
+            setTotalTipsError(false)
+          }}
           thousandSeparator={true}
           prefix="£"
           placeholder="Total Tips"
@@ -72,7 +75,10 @@ const TipCalculator = () => {
           name="employeeName"
           placeholder="Employee name"
           value={employeeName}
-          onChange={(e) => setEmployeeName(e.target.value)}
+          onChange={(e) => {
+            setEmployeeName(e.target.value)
+            setEmployeeNameError(false)
+          }}
         />
         {employeeNameError && <p className="error-message">{employeeNameError}</p>}
         <input
@@ -80,7 +86,10 @@ const TipCalculator = () => {
           name="hoursWorked"
           placeholder="Hours worked"
           value={hoursWorked}
-          onChange={(e) => setHoursWorked(e.target.value)}
+          onChange={(e) => {
+            setHoursWorked(e.target.value)
+            setHoursWorkedError(false)
+          }}
         />
         {hoursWorkedError && <p className="error-message">{hoursWorkedError}</p>}
         <button type="submit">Add Employee</button>
