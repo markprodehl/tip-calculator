@@ -16,7 +16,7 @@ const TipCalculator = () => {
   //   const value = e.target.value;
   //   setTotalTips(value === 0 ? "" : value);
   // };
-  
+
   const handleTotalTipsChange = (floatValue) => {
   setTotalTips(floatValue);
 };
@@ -53,7 +53,7 @@ const TipCalculator = () => {
   return (
     
     <div className="container">
-      <h2 className="header">Tip Calculator</h2>
+      <h2 className="header">Jason's Tip Calculator</h2>
       <form className="input-form">
         <NumericFormat
           type="text"
