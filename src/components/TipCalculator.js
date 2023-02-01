@@ -18,9 +18,8 @@ const TipCalculator = () => {
   // };
 
   const handleTotalTipsChange = (floatValue) => {
-  setTotalTips(floatValue);
-};
-
+    setTotalTips(floatValue);
+  };
 
   const handleEmployeeSubmit = (event) => {
     event.preventDefault();
@@ -51,7 +50,6 @@ const TipCalculator = () => {
   };
 
   return (
-    
     <div className="container">
       <h2 className="header">Jason's Tip Calculator</h2>
       <form className="input-form">
