@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { NumericFormat } from 'react-number-format';
 import './TipCalculator.css'
 
 const TipCalculator = () => {
-  const [totalTips, setTotalTips] = useState("");
+  const [totalTips, setTotalTips] = useState(0);
   const [employees, setEmployees] = useState([]);
   const [totalHours, setTotalHours] = useState(0);
   const [employeeName, setEmployeeName] = useState("");
@@ -11,10 +12,14 @@ const TipCalculator = () => {
   const [employeeNameError, setEmployeeNameError] = useState("");
   const [hoursWorkedError, setHoursWorkedError] = useState("");
 
-  const handleTotalTipsChange = (e) => {
-    const value = e.target.value;
-    setTotalTips(value === 0 ? "" : value);
-  };
+  // const handleTotalTipsChange = (e) => {
+  //   const value = e.target.value;
+  //   setTotalTips(value === 0 ? "" : value);
+  // };
+  
+  const handleTotalTipsChange = (floatValue) => {
+  setTotalTips(floatValue);
+};
 
 
   const handleEmployeeSubmit = (event) => {
@@ -48,16 +53,17 @@ const TipCalculator = () => {
   return (
     
     <div className="container">
-      <h2>Jason's Tronc Calculator</h2>
+      <h2 className="header">Tip Calculator</h2>
       <form className="input-form">
-        <input 
-          type="number" 
+        <NumericFormat
+          type="text"
           value={totalTips || ""}
-          onChange={handleTotalTipsChange} 
+          onValueChange={(values) => handleTotalTipsChange(values.floatValue)}
+          thousandSeparator={true}
+          prefix="£"
           placeholder="Total Tips"
-          />
-          {totalTipsError && <p className="error-message">{totalTipsError}</p>}
-      <br />
+        />
+        {totalTipsError && <p className="error-message">{totalTipsError}</p>}
       </form>
       <br/>
       <form onSubmit={handleEmployeeSubmit} className="input-form">

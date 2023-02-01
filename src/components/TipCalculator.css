@@ -11,6 +11,12 @@ body {
   height: 100vh;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .input-form {
   display: flex;
   flex-direction: column;
