@@ -3,7 +3,7 @@
 # Tip Calculator
 I created this application as a fun project to help my brother with a real life restaurant calculation.
 
-The [Tip Calculator](http://localhost:3000/tip-calculator) is a convenient web application designed for hospitality managers to calculate each employee's share of the daily tip pool. It has three input fields that collect the `Total Tips` for the day as well as the `Employee Name` and their `Hours Worked`. Managers can then add an employee to a list that will include their name, hours worked, and their share of the tip pool. Employees can be deleted from the list if neccessary. 
+The [Tip Calculator](https://markprodehl.github.io/tip-calculator/) is a convenient web application designed for hospitality managers to calculate each employee's share of the daily tip pool. It has three input fields that collect the `Total Tips` for the day as well as the `Employee Name` and their `Hours Worked`. Managers can then add an employee to a list that will include their name, hours worked, and their share of the tip pool. Employees can be deleted from the list if neccessary. 
             
  # Table Of Contents
             
@@ -37,7 +37,7 @@ The [Tip Calculator](http://localhost:3000/tip-calculator) is a convenient web a
  GitHub: (https://github.com/markprodehl)
 
  ## Deployed Link
-(http://localhost:3000/tip-calculator)
+(https://markprodehl.github.io/tip-calculator/)
 
 
 ## Screenshots
