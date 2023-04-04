@@ -51,7 +51,7 @@ const TipCalculator = () => {
 
   return (
     <div className="container">
-      <h2 className="header">Jason's Tip Calculator</h2>
+      <h2 className="header">Tip Calculator</h2>
       <form className="input-form">
         <NumericFormat
           type="text"
@@ -103,14 +103,16 @@ const TipCalculator = () => {
         </div>
       </div>
       <br/>
-      <div className="display-results">
-        {employees.map((employee) => (
-          <div key={employee.employeeName} className="employee-item">
-            {employee.employeeName}: {employee.hoursWorked} hours - £{((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
-            <button onClick={() => handleDelete(employee) } type="delete" className="delete-btn">Delete</button>
-          </div>
-        ))}
-      </div>
+      {totalTips && totalHours ? 
+        <div className="display-results">
+          {employees.map((employee) => (
+            <div key={employee.employeeName} className="employee-item">
+              {employee.employeeName}: {employee.hoursWorked} hours - £{((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
+              <button onClick={() => handleDelete(employee) } type="delete" className="delete-btn">Delete</button>
+            </div>
+          ))}
+        </div>: ""
+      }
     </div>
   );
 };
