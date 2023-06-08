@@ -61,8 +61,8 @@ const TipCalculator = () => {
             setTotalTipsError(false)
           }}
           thousandSeparator={true}
-          prefix="£"
-          placeholder="Total Tips"
+          prefix="$"
+          placeholder="Team Total"
         />
         {totalTipsError && <p className="error-message">{totalTipsError}</p>}
       </form>
@@ -99,7 +99,7 @@ const TipCalculator = () => {
         </div>
         <br />
         <div>
-          Average Tips Per Hour: £{totalTips && totalHours ? (totalTips / totalHours).toFixed(2) : ""}
+          Average Tips Per Hour: ${totalTips && totalHours ? (totalTips / totalHours).toFixed(2) : ""}
         </div>
       </div>
       <br/>
@@ -107,7 +107,7 @@ const TipCalculator = () => {
         <div className="display-results">
           {employees.map((employee) => (
             <div key={employee.employeeName} className="employee-item">
-              {employee.employeeName}: {employee.hoursWorked} hours - £{((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
+              {employee.employeeName}: {employee.hoursWorked} hours - ${((totalTips / totalHours) * employee.hoursWorked).toFixed(2)}
               <button onClick={() => handleDelete(employee) } type="delete" className="delete-btn">Delete</button>
             </div>
           ))}
